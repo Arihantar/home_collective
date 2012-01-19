@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  order: 
+  tracking_code: MyString
+  status: MyString
+  shipped_at: 2012-01-19 18:30:29
+  received_at: 2012-01-19 18:30:29
+  admin: 
+
+two:
+  order: 
+  tracking_code: MyString
+  status: MyString
+  shipped_at: 2012-01-19 18:30:29
+  received_at: 2012-01-19 18:30:29
+  admin: 

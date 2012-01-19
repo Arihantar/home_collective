@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  product_code: MyString
+  description: MyText
+  price: 9.99
+  discount: 1
+  delivery_min_range: 1
+  delivery_max_range: 1
+  stock: 1
+  reorder_level: 1
+  admin: 
+
+two:
+  name: MyString
+  product_code: MyString
+  description: MyText
+  price: 9.99
+  discount: 1
+  delivery_min_range: 1
+  delivery_max_range: 1
+  stock: 1
+  reorder_level: 1
+  admin: 

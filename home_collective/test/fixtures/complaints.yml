@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  order: 
+  problem: MyText
+  status: MyString
+
+two:
+  order: 
+  problem: MyText
+  status: MyString

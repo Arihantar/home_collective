@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  path: MyString
+  page_duration: 1
+  db_duration: 1
+
+two:
+  path: MyString
+  page_duration: 1
+  db_duration: 1
