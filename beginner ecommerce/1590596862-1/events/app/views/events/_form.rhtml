@@ -1,0 +1,22 @@
+<%= error_messages_for :event %>
+
+<p><label>Title<br/>
+<%= text_field :event, :title %></label></p>
+
+<p><label>Categories<br/>
+<%= select_tag('categories[]', options_for_select(Category.find(:all).collect {|c| [c.name, c.id] }, @event.category_ids), :multiple => true ) %></label></p>
+
+<p><label>Location<br/>
+<%= text_field_with_auto_complete :event, :location %></label></p>
+
+<p><label>Occurs on<br/>
+<%= date_select :event, :occurs_on %></label></p>
+
+<p><label>Url<br/>
+<%= text_field :event, :url %></label></p>
+
+<p><label>Description<br/>
+<%= text_area :event, :description, :rows => 5 %></label></p>
+
+<p><label>Tags <span>(space separated)</span><br/>
+<%= text_field_tag 'tags', @event.tag_list, :size => 40 %></label></p>

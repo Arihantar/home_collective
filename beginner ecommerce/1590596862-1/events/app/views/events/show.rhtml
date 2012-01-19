@@ -1,0 +1,23 @@
+<p>
+  <%= link_to 'All events', events_url %>
+<p>
+
+<%= render :partial => 'event' %>
+
+<p>
+  <%= link_to_function "Invite a friend to this event", "$('email_friend').toggle()" %>
+</p>
+
+<div id="email_friend" style="display:none">
+  <% form_tag :action => 'email_friend', :id => @event do %>
+    <p>Your Name:<br />
+    <%= text_field_tag 'name' %></p>
+
+    <p>Your friend's email:<br />
+    <%= text_field_tag 'email' %></p>
+
+    <p>
+      <%= submit_tag 'Send email' %> or <%= link_to_function 'Cancel', "$('email_friend').hide()", :class => 'cancel' %>
+    </p>
+  <% end %>
+</div>

@@ -1,0 +1,7 @@
+<h1><%= link_to "All Events", events_url %></h1>
+
+<%= render :partial => 'search' %>
+<%= render :partial => 'event', :collection => @events %>
+
+<%= link_to 'Previous page', { :page => @event_pages.current.previous } if @event_pages.current.previous %>
+<%= link_to 'Next page',     { :page => @event_pages.current.next }     if @event_pages.current.next %> 

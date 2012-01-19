@@ -1,0 +1,15 @@
+class List < ActiveRecord::Base
+  has_and_belongs_to_many :items
+  
+  
+   def list_name
+    list_name.name if name?
+  end
+  
+  def list_name=(name)
+    self.list = List.find_or_create_by_name(name) unless name.blank?
+  end
+
+
+
+end

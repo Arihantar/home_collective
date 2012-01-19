@@ -1,0 +1,58 @@
+<div class="row">
+	<div class="span12">
+		<div class="row">
+			<div class="span6">
+				<span class="label"> Name </span>
+			</div>
+			<div class="span6">
+				<%= @item.name %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span6">
+				<span class="label"> Duedate </span>
+			</div>
+			<div class="span6">
+				<%= @item.duedate %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span6">
+				<span class="label"> Location </span>
+			</div>
+			<div class="span6">
+				<%= @item.location %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span6">
+				<span class="label"> Name </span>
+			</div>
+			<div class="span6">
+				<%= @item.name %>
+			</div>
+		</div>
+		<p>
+			<b>Duedate:</b>
+			<%= @item.duedate %>
+		</p>
+		<p>
+			<b>Location:</b>
+			<%= @item.location %>
+		</p>
+		<p>
+			<b>User:</b>
+			<%= @item.user.email %>
+		</p>
+		<% if (@item.lists != nil) %>
+		<p>
+			<b>List:</b>
+			<%= render @item.lists %>
+			<% end %>
+		</p>
+	</div>
+</div>
+<div class="row">
+	<%= link_to 'Edit', edit_item_path(@item) %> |
+	<%= link_to 'Back', items_path %>
+</div>

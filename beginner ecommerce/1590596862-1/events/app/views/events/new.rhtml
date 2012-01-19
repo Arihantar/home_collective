@@ -1,0 +1,14 @@
+<h1>New event</h1>
+
+<% form_tag({:action => 'create'}, :id => 'event_form') do %>
+  <%= render :partial => 'form' %>
+  
+  <p>
+    <%= submit_tag_or_cancel 'Create' %>
+  </p>
+<% end %>
+
+<%= observe_form 'event_form', 
+      :url       => { :controller => 'events', :action => 'observe_new' },
+      :frequency => 1,
+      :update    => {} %>

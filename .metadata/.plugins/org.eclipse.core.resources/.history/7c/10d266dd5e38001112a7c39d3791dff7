@@ -1,0 +1,10 @@
+class Item < ActiveRecord::Base
+  belongs_to :user
+  has_and_belongs_to_many :lists
+  
+  validates :name, :presence => true
+  validates :duedate, :presence => true
+  
+  accepts_nested_attributes_for :lists, :allow_destroy => :true, :reject_if => proc{|attr| attr.all? {|k,v| v.blank?}}
+  
+end

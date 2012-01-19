@@ -1,0 +1,49 @@
+<div class="row">
+	<div class="span16">
+		<div class="row">
+			<div class="span8" align="center">
+				<span class="label"> Name </span>
+			</div>
+			<div class="span8" align="center">
+				<%= @item.name %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span8" align="center">
+				<span class="label"> Duedate </span>
+			</div>
+			<div class="span8" align="center">
+				<%= @item.duedate %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span8" align="center">
+				<span class="label"> Location </span>
+			</div>
+			<div class="span8" align="center">
+				<%= @item.location %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span8" align="center">
+				<span class="label"> User </span>
+			</div>
+			<div class="span8" align="center">
+				<%= @item.user.email %>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="span8" align="center">
+				<span class="label"> Lists </span>
+			</div>
+			<div class="span8" align="center">
+				<% @item.lists.map{|list| link_to list.name, list_path(list)}.join(',') %>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<%= link_to 'Edit', edit_item_path(@item) %> |
+	<%= link_to 'Back', items_path %>
+</div>

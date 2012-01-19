@@ -1,0 +1,17 @@
+
+<h1 align="center">Tags</h1>
+
+<table>
+  <tr>
+    <th>Tag Name</th>
+  </tr>
+
+<% @tags.each do |tag| %>
+<tr>
+	<td><%= link_to tag["name"], "tasks/tags/#{tag[name]}" %></td>
+</tr>
+<% end %>
+</table>
+
+<br />
+

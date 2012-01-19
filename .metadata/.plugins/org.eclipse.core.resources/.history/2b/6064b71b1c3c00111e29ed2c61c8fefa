@@ -1,0 +1,26 @@
+<h1>Listing lists</h1>
+
+<table class="zebra-striped">
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @lists.each do |list| %>
+  <tr>
+  	<td><%= link_to list.name, list_path(list.id) %></td>
+    <td><%= link_to 'Edit', edit_list_path(list) %></td>
+    <td><%= link_to 'Destroy', list, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+  <% list.items.each do |l| %>
+  <%= l.name %>
+  <% end %>
+  
+  <%= list.items.count }%>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New List', new_list_path %>

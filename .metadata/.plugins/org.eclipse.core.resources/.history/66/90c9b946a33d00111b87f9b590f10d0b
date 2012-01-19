@@ -1,0 +1,12 @@
+<div class="row">
+	<table>
+		<tr>
+		<th>Tag Name</th>
+		</tr>
+		<% @tags.each do |tag| %>
+		<tr>
+			<%= tag["name"] %>
+		</tr>
+		<% end %>
+	</table>
+</div>

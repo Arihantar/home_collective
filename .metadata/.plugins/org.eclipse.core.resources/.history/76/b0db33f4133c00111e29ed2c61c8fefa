@@ -1,0 +1,83 @@
+<h1 align="center">Items</h1>
+<%= hidden_field_tag :sort, params[:sort]%>
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= form_tag items_path, :method => 'get', :id => "items_search" do %>
+<p align="center">
+	<%= text_field_tag :search, params[:search] %>
+	<%= submit_tag "Search", :name => nil %>
+</p>
+<!-- <div class="pills">
+<% List.all.each do |list| %>
+<%= link_to list.name, list %>
+<% end %>
+</div> -->
+<ul class="tabs" data-tabs="tabs">
+	<li>
+		<a href="#overdue">Overdue</a>
+	</li>
+	<li>
+		<a href="#today">Today</a>
+	</li>
+	<li>
+		<a href="#pending">Pending</a>
+	</li>
+	<li>
+		<a href="#completed">Completed</a>
+	</li>
+</ul>
+
+
+<div class="tab-content">
+	<table class="zebra-striped">
+		<tr>
+			<th></th>
+			<th><%= sortable "name" %></th>
+			<th><%= sortable "duedate", "Due Date" %></th>
+			<th> <%= sortable "status", "Status"%></th>
+			<th><%= sortable "location"%></th>
+			<th><%= "Lists"%></th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+		<% @items.each do |@item| %>
+		<div id="overdue">
+			<% if @item.status != 'COMPLETED' && @item.duedate < Date.today %>
+			<div id="items">
+				<%= render :partial => 'items' %>
+			</div>
+	
+</div>
+<div id="today">
+	<% elsif @item.status != 'COMPLETED' && @item.duedate == Date.today %>
+	<table class="zebra-striped">
+		<div id="items">
+			<%= render :partial => 'items' %>
+		</div>
+	</table>
+</div>
+<div id="pending">
+	<% elsif @item.status="PENDING" %>
+	<div id="items">
+		<%= render :partial => 'items' %>
+	</div>
+	</table>
+</div>
+<div id="completed">
+	<% else %>
+	<div id="items">
+		<%= render :partial => 'items' %>
+	</div>
+	</table>
+</div>
+<% end %>
+<% end %>
+</table>
+</div>
+<%end%>
+<div class="pagination">
+	<%= will_paginate @items %>
+</div>
+<br />
+<%= link_to 'New Item', new_item_path %> 

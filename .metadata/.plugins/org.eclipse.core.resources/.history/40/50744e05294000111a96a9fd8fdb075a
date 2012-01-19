@@ -1,0 +1,28 @@
+<h1 align="center">Tasks</h1>
+<div class="row" align="center">
+<%= form_tag tasks_path, :method => 'get' do %>
+<p>
+	<%= text_field_tag :search, params[:search] %>
+	<%= submit_tag "Search", :name => nil%>
+</p>
+<%end%>
+</div>
+<table>
+  <tr>
+    <th><%= sortable "name" %></th>
+    <th><%= sortable "duedate" %></th>
+    <th><%= sortable "context" %></th>
+    <th><%= sortable "status" %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @tasks.each do |task| %>
+  <%= render :partial => 'tasks', :locals => {:task => task} %>
+<% end %>
+</table>
+<%= will_paginate @tasks %>
+<br />
+
+<%= link_to 'New Task', new_task_path %>

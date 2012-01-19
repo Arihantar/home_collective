@@ -1,0 +1,33 @@
+<div class="event item">
+  <h3 class="title"><%= link_to h(event.title), event_url(event) %></h3>
+
+  <% if event.owned_by? current_user %>
+  <p class="controls">
+    <%= link_to('edit', edit_event_url(event)) %> |
+    <%= link_to('delete', {:action => 'destroy', :id => event}, :method => 'delete', :confirm => 'Really?') %>
+  </p>
+  <% end %>
+
+  <ul>
+    <li>Posted by: <%= event.user.login %></li>
+    <li><%=h event.occurs_on %></li>
+    <li><span id="event_location_<%= event.id %>"><%=h event.location %></span></li>
+  </ul>
+
+<%= in_place_editor("event_location_#{event.id}", 
+                    :loading_text => "Saving..",
+                    :cancel_text  => "Cancel",
+                    :save_text    => "Save",
+                    :url          => { :action => "update_location",
+                                       :id     => event }) if event.owned_by? current_user %>
+
+  <div class="description">
+    <%= simple_format(sanitize(event.description)) if event.description %>
+  </div>
+  
+  <% if event.tags.any? %>
+  <div class="tags">
+    tags: <%= event.tags.join(' ') %>
+  </div>
+  <% end %>
+</div>

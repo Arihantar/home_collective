@@ -1,0 +1,8 @@
+class CreateItemsLists < ActiveRecord::Migration
+  def up
+    create_table :items_lists
+  end
+
+  def down
+  end
+end

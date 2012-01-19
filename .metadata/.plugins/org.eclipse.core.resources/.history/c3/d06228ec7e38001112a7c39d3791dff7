@@ -1,0 +1,9 @@
+<%= form_for (:lists)  do |list_form| %>
+  <div class="field">
+
+  	<%= list_form.label :name, 'New List' %>
+    <%= list_form.text_field :name %>
+
+
+  </div>
+<% end %>

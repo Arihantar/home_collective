@@ -1,0 +1,22 @@
+<h1 align="center">Tasks</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Duedate</th>
+    <th>Context</th>
+    <th>Tags</th>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @tasks.each do |task| %>
+  <%= render :partial => 'tasks', :locals => {:task => task} %>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Task', new_task_path %>

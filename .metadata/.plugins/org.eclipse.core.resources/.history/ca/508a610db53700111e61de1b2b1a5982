@@ -1,0 +1,6 @@
+<%= form.fields_for :lists  do |f| %>
+  <div class="field">
+  	<%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+<% end %>

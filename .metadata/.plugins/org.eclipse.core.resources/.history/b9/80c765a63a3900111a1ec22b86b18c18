@@ -1,0 +1,7 @@
+class List < ActiveRecord::Base
+  has_and_belongs_to_many :items
+  
+  attr_reader :list_name_values
+  
+  
+end

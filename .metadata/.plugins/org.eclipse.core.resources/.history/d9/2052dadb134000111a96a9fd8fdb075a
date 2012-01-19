@@ -1,0 +1,51 @@
+<fieldset>
+	<div class="row">
+		<table  class="zebra-striped">
+			<tr>
+				<th>Task</th>
+				<th>Details</th>
+			</tr>
+			<tr>
+				<td>Name</td>
+				<td><%= @task.name %></td>
+			</tr>
+			<tr>
+				<td>Due Date</td>
+				<td><%= @task.duedate.strftime("%d %m %Y") %></td>
+			</tr>
+			<tr>
+				<td>Context</td>
+				<td><%= @task.context %></td>
+			</tr>
+			<tr>
+				<td>Notes</td>
+				<td><%= @task.notes %></td>
+			</tr>
+			<tr>
+				<td>Tags</td>
+				<td><%= @task.tag_list %></td>
+			</tr>
+			<% @task.comments.each do |comment| %>
+			<tr>
+				<td><span class="label notice"> Comment </span></td>
+				<td><%= comment.body %></td>
+			</tr>
+			<% end %>
+		</table>
+		<div class="clearfix">
+			<label for="addcommentarea">Add Comments</label>
+			<%= form_for ([@task, @task.comments.build]) do |comment_form|%>
+			<div class="input">
+				<%= comment_form.text_area :body, :class =>"xlarge", :rows => 3, :cols => "10"%>
+			</div>
+			<div class="row" style="position: relative">
+				<%= comment_form.submit :class => "btn info" %>
+			</div>
+			<div class="actions">
+				<%= link_to 'Edit', edit_task_path(@task), :class => "btn" %>
+				<%= link_to 'Back', :back, :class => "btn" %>
+			</div>
+			<% end %>
+		</div>
+	</div>
+</fieldset>

@@ -1,0 +1,14 @@
+class CreateItemsLists < ActiveRecord::Migration
+  def up
+    create_table :items_lists do |t|
+      t.references :item
+      t.references :list
+      
+      t.timestamps
+    end
+  end
+
+  def down
+    drop_table :items_lists
+  end
+end

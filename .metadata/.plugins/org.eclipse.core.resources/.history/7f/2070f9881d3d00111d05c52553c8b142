@@ -1,0 +1,5 @@
+<tr>
+	<td><%= link_to context.name, context_path(context.name) %></td>
+	<td><%= link_to 'Edit', edit_task_path(task) %></td>
+	<td><%= link_to 'Delete', task, :confirm => 'Are you sure?', :method => :delete %></td>
+</tr>

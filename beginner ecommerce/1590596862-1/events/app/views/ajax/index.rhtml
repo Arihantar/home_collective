@@ -1,0 +1,12 @@
+<%= link_to_remote "Ajax call with indicator", 
+                   :update   => "date",
+                   :loading  => "$('indicator').show()",
+                   :complete => "$('indicator').hide()",
+                   :url      => { :controller => "ajax",
+                                  :action     => "current_date" } %>
+
+<div id="date">
+  <p>This text will be replaced.</p>
+</div>
+
+<%= image_tag "indicator.gif", :id => 'indicator', :style => 'display:none' %> 

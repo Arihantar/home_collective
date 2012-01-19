@@ -1,0 +1,5 @@
+
+<p> 
+	<b>List</b> 
+	<%= list.name %>
+</p>

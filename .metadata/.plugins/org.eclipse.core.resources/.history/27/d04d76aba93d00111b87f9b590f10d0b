@@ -1,0 +1,25 @@
+
+<div class="row">
+<div class="span16">
+<h2 align="center">Tasks</h2>
+<% @tasks.each do |task|%>
+<p>
+  <b>Name:</b>
+  <%= task.name %>
+</p>
+
+<p>
+  <b>Duedate:</b>
+  <%= task.duedate %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= task.status %>
+</p>
+
+
+
+<% end %>
+</div>
+</div>

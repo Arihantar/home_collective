@@ -1,0 +1,7 @@
+One of your friends, <%= @sender_name %>, thinks you'll like an event we have listed.
+Come check all the information about <%= @event.title %> at 
+<%= url_for :only_path  => false, 
+            :host       => "eventalicio.us", 
+            :controller => "event", 
+            :action     => "show", 
+            :id         => @event  %></p>

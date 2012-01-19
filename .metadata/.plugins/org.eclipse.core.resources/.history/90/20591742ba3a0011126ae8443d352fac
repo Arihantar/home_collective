@@ -1,0 +1,15 @@
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".list-input").autoSuggest("/items/list_name",
+			{ 
+			  selectedValuesProp: "name", selectedItemProp: "name", searchObjProps: "name",
+			  asHtmlID: "lists_names" 
+			}
+		    )
+	});
+</script>
+<h1>New item</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', items_path %>

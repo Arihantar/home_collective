@@ -1,0 +1,36 @@
+
+<div class="row">
+<div class="span16">
+<h2 align="center">Tasks</h2>
+
+<table class="zebra-striped">
+<% @tasks.each do |task|%>
+<tr>
+	<th>
+		Name
+	</th>
+	<th>
+		Due Date
+	</th>
+</tr>
+
+  <b>Name:</b>
+  <%= task.name %>
+</p>
+
+<p>
+  <b>Duedate:</b>
+  <%= task.duedate %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= task.status.capitalize %>
+</p>
+
+
+
+<% end %>
+</table>
+</div>
+</div>

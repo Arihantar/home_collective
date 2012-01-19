@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Reminder</title>
+		<%= stylesheet_link_tag    "application" %>
+		<%= javascript_include_tag "application" %>
+		<%= javascript_include_tag "autocomplete-rails.js" %>
+		<%= javascript_include_tag "jquery-1.6.2.min.js" %>
+		<%= javascript_include_tag "jquery-ui-1.8.16.custom.min.js" %>
+		<link type="text/css" href="../../assets/stylesheets/ui-lightness/jquery-ui-1.8.16.custom.css" rel="Stylesheet" />
+		<script type="text/javascript" src="../../assets/javascripts/jquery-1.6.2.min.js"></script>
+		<script type="text/javascript" src="../../assets/javascripts/jquery-ui-1.8.16.custom.min.js"></script>
+		<%= csrf_meta_tags %>
+	</head>
+	<body style="padding-top: 60px">
+		<div class="topbar">
+			<div class="topbar-inner">
+				<div class="container">
+					<h3><%= link_to "Reminder", "/" %></h3>
+					<ul class="nav">
+						<li>
+							<%= link_to "Items", items_path %>
+						</li>
+						<li>
+							<%= link_to "List", lists_path%>
+						</li>
+					</ul>
+					<ul class="nav secondary-nav">
+						<% if user_signed_in? %>
+						<li>
+							Signed in as <%= current_user.email %>. Not you?
+						</li>
+						<li>
+							<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+						</li>
+						<% else %>
+						<li>
+							<%= link_to "Sign up", new_user_registration_path %>
+						</li>
+						<li >
+							<%= link_to "Sign in", new_user_session_path %>
+						</li>
+						<% end %>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="content">
+				<div class="row"></div>
+				<div class="row">
+					<div class="span11">
+						<p class="notice">
+							<%= notice %>
+						</p>
+						<p class="alert">
+							<%= alert %>
+						</p>
+						<%= yield %>
+					</div>
+					<div class="span1">
+						&nbsp;
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

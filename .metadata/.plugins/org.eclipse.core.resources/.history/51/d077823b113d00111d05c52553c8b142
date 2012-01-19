@@ -1,0 +1,18 @@
+<h1 align="center">Contexts</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @contexts.each do |context| %>
+  <%= render :partial => 'tasks', :locals => {:task => task} %>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Task', new_task_path %>

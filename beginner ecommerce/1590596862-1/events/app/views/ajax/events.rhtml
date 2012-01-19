@@ -1,0 +1,18 @@
+Add a new event: 
+
+<% form_remote_tag(:url => { :controller => 'ajax', :action => "save_event" }, :loading  => "$('indicator_form').show()") do %>
+  <p>Title<br/>
+  <%= text_field :event, :title %></p>
+  
+  <p>Location<br/>
+  <%= text_field :event, :location %></p>
+  
+  <p>
+    <%= submit_tag 'Save' %>
+    <%= image_tag 'indicator.gif', :id => 'indicator_form', :style => 'display:none' %>
+  </p>
+<% end %>
+
+<div id="count">
+  <%= render :partial => 'events_count' %>
+</div>

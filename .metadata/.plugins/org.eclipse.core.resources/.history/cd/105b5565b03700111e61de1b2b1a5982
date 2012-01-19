@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @item.name %>
+</p>
+
+<p>
+  <b>Duedate:</b>
+  <%= @item.duedate %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @item.location %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @item.user.email %>
+</p>
+
+
+	<% unless @item.lists.object.nil? %>
+	<p> 
+	<b>List:</b>
+	<%= render @item.lists %>
+	<% end %>
+</p>
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>

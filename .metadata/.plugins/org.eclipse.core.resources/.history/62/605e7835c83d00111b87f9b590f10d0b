@@ -1,0 +1,22 @@
+<h1 align="center">Tasks</h1>
+
+<table>
+  <tr>
+    <th><%= sortable "name" %></th>
+    <th><%= sortable "duedate" %></th>
+    <th><%= sortable "context" %></th>
+    <th>Tags</th>
+    <th><%= sortable "status" %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @tasks.each do |task| %>
+  <%= render :partial => 'tasks', :locals => {:task => task} %>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Task', new_task_path %>

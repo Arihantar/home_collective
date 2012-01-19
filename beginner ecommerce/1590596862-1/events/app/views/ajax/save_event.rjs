@@ -1,0 +1,11 @@
+# Replace the count div
+page.replace_html 'count', :partial => 'events_count'
+page.visual_effect :highlight, 'count'
+
+# Clean up the UI
+page['event_title'].value = ''
+page['event_location'].value = ''
+page['event_title'].focus
+
+# Hide the indicator image
+page['indicator_form'].hide

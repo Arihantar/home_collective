@@ -1,0 +1,7 @@
+<%= form_for :list, :url => lists_path  do |list_form| %>
+<div class="field">
+	<%= list_form.label :name %>
+	<%= list_form.text_field :name %>
+	<%= list_form.submit %>
+</div>
+<% end %> 

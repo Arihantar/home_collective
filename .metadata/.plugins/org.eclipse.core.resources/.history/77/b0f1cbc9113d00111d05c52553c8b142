@@ -1,0 +1,18 @@
+<tr>
+	<td><%= link_to context.name, task_path(task.id) %></td>
+	<td><%= task.duedate %></td>
+	<td><%= task.context %></td>
+	<td>
+	<ul class="pills" data-tabs="tabs">
+		<% unless task.tag_list.nil? %>
+		
+		<% task.tag_list.each do |t|%>
+		<li>
+			<%= t %>
+		</li>
+		<% end %>
+		<% end %>
+	</ul></td>
+	<td><%= link_to 'Edit', edit_task_path(task) %></td>
+	<td><%= link_to 'Delete', task, :confirm => 'Are you sure?', :method => :delete %></td>
+</tr>

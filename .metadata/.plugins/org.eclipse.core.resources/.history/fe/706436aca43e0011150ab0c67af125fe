@@ -1,0 +1,51 @@
+// This is a manifest file that'll be compiled into including all the files listed below.
+// Add new JavaScript/Coffee code in separate files in this directory and they'll automatically
+// be included in the compiled file accessible from http://example.com/assets/application.js
+// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
+// the compiled file.
+//
+//= require jquery
+//= require jquery_ujs
+//= require jquery-ui-1.8.16.custom.min
+//= require bootstrap
+//= require_tree .
+
+$(function() {
+	$('.tabs').tabs();
+
+	$('#check_complete').live("click", function() {
+		if($(this).attr("checked")) {
+			$.ajax({
+				url : "/tasks/status_update" + "/" + $(this).parent().parent().data("id").toString() + "/" + "COMPLETED",
+				type : "POST"
+			})
+		} else {
+			$.ajax({
+				url : "/tasks/status_update" + "/" + $(this).parent().parent().data("id").toString() + "/" + "PENDING",
+				type : "POST"
+			})
+		}
+	});
+
+	$('#task_tag_list').autoSuggest("/tags/autosuggest", {
+		asHtmlID : "tags_list",
+		selectedItemProp : "name",
+		selectedValuesProp : "name",
+		searchObjProps : "name",
+		preFill : $("#prefill_tags").text()
+	});
+
+	$('.datepicker').datepicker();
+
+	// Status change
+	$('#status_button').find("*").each(function() {
+
+		if($('#status_button').text() == ("Completed")) {
+			$('#status_button').addClass("success")
+		} else if($('#status_button').text() == ("Pending")) {
+			$('#status_button').addClass("primary")
+		} else if($('#status_button').text() == ("Overdue")) {
+			$('#status_button').addClass("danger")
+		}
+	});
+})

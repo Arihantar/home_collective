@@ -1,0 +1,10 @@
+<%= form_for :lists  do |list_form| %>
+<div class="field">
+	<%= list_form.label :name %>
+
+	<%= list_form.text_field :name %>
+</div>
+<div class="actions">
+	<%= list_form.submit %>
+</div>
+<% end %> 

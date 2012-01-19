@@ -1,0 +1,19 @@
+<h1>Listing items</h1>
+<%= form_tag items_path, :method => 'get', :id => "items_search" do %>
+<p>
+	<%= text_field_tag :search, params[:search] %>
+	<%= submit_tag "Search", :name => nil %>
+</p>
+<% List.all.each do |list| %>
+	<%= link_to list.name, list_path(list)%>
+<% end %>
+<div id="items">
+	<%= render 'items' %>
+</div>
+<%end%>
+
+<div class="pagination">
+<%= will_paginate @items %>
+</div>
+<br />
+<%= link_to 'New Item', new_item_path %> 

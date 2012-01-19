@@ -1,0 +1,13 @@
+<h2><%= link_to_function 'Find an event', "$('search').toggle()" %></h2>
+
+<div id="search" <%= 'style="display: none"' unless request.post? %>>
+  <% form_tag :action => 'search' do -%>
+    <p>Title:<br />
+    <%= text_field_tag :title, params[:title], :size => 30 %></p>
+
+    <p>Location:<br />
+    <%= text_field_tag :location, params[:location], :size => 30 %></p>
+    
+    <p><%= submit_tag 'Search!' %></p>
+  <% end -%>
+</div>

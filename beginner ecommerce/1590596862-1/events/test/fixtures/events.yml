@@ -1,0 +1,8 @@
+tiki_party: 
+  id:          1
+  user_id:     1
+  title:       "Tiki Party"
+  url:         "http://example.com"
+  description: "A wonderfully good time"
+  location:    "Hampton's Apartment"
+  occurs_on:   "2007-09-02"

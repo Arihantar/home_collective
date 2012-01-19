@@ -1,0 +1,11 @@
+eugene:
+  id: 1
+  login: 'eugene'
+  email: 'eugene@example.com'
+  hashed_password: 'e5e9fa1ba31ecd1ae84f75caaa474f3a663f05f4' # => secret
+
+lauren:
+  id: 2
+  login: 'lauren'
+  email: 'lauren@example.com'
+  hashed_password: 'e5e9fa1ba31ecd1ae84f75caaa474f3a663f05f4' # => secret

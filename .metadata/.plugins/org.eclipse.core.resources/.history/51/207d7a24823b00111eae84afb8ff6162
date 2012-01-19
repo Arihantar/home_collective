@@ -1,0 +1,15 @@
+<tr>
+	<td> <%= check_box_tag (@item.name) %> </td>
+	<td><%= @item.name %> </td>
+	<td> <%= time_ago_in_words(@item.duedate) %> ago </td>		
+	<td>
+	<button class="btn", id="checkbox-status">
+		<%= (@item.status) %>
+	</button></td>
+	<td><%= @item.location %></td>
+	<td> <% @item.lists.each do|list| %>
+	<%= link_to list.name, list_path(list.id) %>
+	<% end %> </td>
+	<td><%= link_to 'Edit', edit_item_path(@item) %></td>
+	<td><%= link_to 'Destroy', @item, :confirm => 'Are you sure?', :method => :delete %></td>
+</tr>

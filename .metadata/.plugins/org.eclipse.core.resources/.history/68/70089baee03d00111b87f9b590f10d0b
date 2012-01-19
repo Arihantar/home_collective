@@ -1,0 +1,19 @@
+
+<div class="row">
+<div class="span16">
+<h2 align="center"><%= @context %></h2>
+<table class="zebra-striped">
+
+<tr>
+  <th>Name</th>
+  <th>Due Date</th>
+</tr>
+<% @tasks.each do |task|%>
+<tr>
+	<td><%= link_to task.name, task_path(task.id) %></td>
+	<td><%= task.duedate %></td>
+</tr>
+<% end %>
+</table>
+</div>
+</div>

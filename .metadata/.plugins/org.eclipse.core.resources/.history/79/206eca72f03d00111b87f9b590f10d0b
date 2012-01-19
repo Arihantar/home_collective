@@ -1,0 +1,33 @@
+class Task < ActiveRecord::Base
+  before_save :downcase_fields
+  has_many :comments
+  belongs_to :user
+  acts_as_taggable
+  def downcase_fields
+    self.name.downcase
+    self.context.downcase
+    self.tag_list.map{|t| t.downcase}
+  end
+
+  def self.search(search, current_user_id)
+    if search
+      where("user_id=? AND name LIKE ?",current_user_id, "%#{search}%")
+    else
+      where("user_id=?",current_user_id)
+    end
+  end
+
+  def self.awesome_search_result(search, current_user_id, sort_column, sort_direction)
+    if search
+      where("user_id=? AND name LIKE ?",current_user_id, "%#{search}%")
+      if sort_column
+        .order(sort_column+" "+sort_direction)
+      end
+    else
+      where("user_id=?",current_user_id)
+      if sort_column
+        order(sort_column+" "+sort_direction)
+      end
+    end
+  end
+end

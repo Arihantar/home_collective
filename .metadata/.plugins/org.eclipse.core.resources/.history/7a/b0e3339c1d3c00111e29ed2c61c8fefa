@@ -1,0 +1,18 @@
+
+
+<div class="row">
+	<div class="span12">
+		<div class="span6">
+		<span class="label"> Name </span>
+		</div>
+		<div class="span6">
+		<%= @list.name %>
+		</div>
+	</div>
+		
+	
+</div> 
+
+
+<%= link_to 'Edit', edit_list_path(@list) %> |
+<%= link_to 'Back', lists_path %>

@@ -1,0 +1,12 @@
+<%= form.fields_for :lists  do |list_form| %>
+  <div class="field">
+  	<% unless list_form.object.nil? || list_form.object.new_record? %>
+  	<%= list_form.label :_destoy, 'Remove'%> <%= list_form.check_box :_destroy %>
+  	<%= list_form.text_field :name %>
+  	<% else %>
+  	<%= list_form.label :name, 'New List' %>
+    <%= list_form.autocomplete_field :list_name, autocomplete_item_list_name_path %>
+  	<% end %>
+
+  </div>
+<% end %>

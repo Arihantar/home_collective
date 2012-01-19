@@ -1,0 +1,30 @@
+<tr class="task_item" data-id = "<%=task.id%>"%> 
+	<td>
+		<% if task.status == 'COMPLETED'%>
+		<%= check_box_tag(:check_complete, 0, true)%>
+		<% else %>
+		<%= check_box_tag(:check_complete, 1, false)%>
+		<% end %> 
+		<%= link_to task.name, task_path(task.id) %></td>
+	<% if task.duedate < DateTime.now.to_date %> 
+	<td><%= time_ago_in_words(task.duedate) %> ago</td>
+	<% elsif task.duedate == DateTime.now.to_date %> <td> Today </td>
+	<% else %> <td> In <%= time_ago_in_words(task.duedate) %></td>
+	<% end %> <td><%= task.context %></td>
+	<td> <% unless task.tag_list.nil? %>
+	<% task.tag_list do |t|%>
+	<%= link_to t, "/tags/#{t}" %>
+	<%end%>
+	<% end %></td>
+	<td>
+		<% if task.status == "COMPLETED" %>
+		<%= button_tag task.status.capitalize, :class => "btn success" %>
+		<% elsif task.status == "PENDING" %>
+		<%= button_tag task.status.capitalize, :class => "btn primary" %>
+		<% elsif task.status == "OVERDUE" %>
+		<%= button_tag task.status.capitalize, :class => "btn danger"%>
+		<% end %>
+    </td>
+	<td><%= link_to 'Edit', edit_task_path(task) %></td>
+	<td><%= link_to 'Delete', task, :confirm => 'Are you sure?', :method => :delete %></td>
+</tr>

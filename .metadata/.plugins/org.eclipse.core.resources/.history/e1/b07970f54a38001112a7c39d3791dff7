@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+<table class="bordered-table">
+<p>
+  <b>Name:</b>
+  <%= @item.name %>
+</p>
+
+<p>
+  <b>Duedate:</b>
+  <%= @item.duedate %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @item.location %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @item.user.email %>
+</p>
+
+
+	<% if (@item.lists != nil) %>
+	<p> 
+	<b>List:</b>
+	<%= render @item.lists %>
+	<% end %>
+</p>
+</table>
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>

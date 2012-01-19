@@ -1,0 +1,12 @@
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".list-input").autoSuggest("/items/list_name",
+			{ selectedItemProp: "name", searchObjProps: "name", preFill: "<%= @item.lists.collect(&:name).join(',')%>", asHtmlID: "lists_names" }
+		)
+	});
+</script>
+<h1>Editing item</h1>
+<%= render 'form' %>
+
+<%= link_to 'Show', @item %> |
+<%= link_to 'Back', items_path %> 

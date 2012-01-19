@@ -1,0 +1,38 @@
+<ul class="tabs" data-tabs="tabs">
+	<li>
+		<a href="#Overdue">Overdue</a>
+	</li>
+	<li>
+		<a href="#Today">Today</a>
+	</li>
+	<li>
+		<a href="#Pending">Pending</a>
+	</li>
+	<li>
+		<a href="#Completed">Completed</a>
+	</li>
+</ul>
+<div id="my-tab-content" class="tab-content">
+	<div class="tab-pane" id="Overdue">
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Due Date</th>
+				<th>Context</th>
+				<th>Tags</th>
+				<th>Status</th>
+				<th></th>
+				<th></th>
+				<th></th>
+			</tr>
+			<% @tasks.each do |task| %>
+			<% if task.duedate < DateTime.now %>
+			<%= render :partial => "tasks/tasks", :locals => {task => task} %>
+			<% end %>
+			<% end %>
+		</table>
+	</div>
+	<div class="tab-pane" id="Today"></div>
+	<div class="tab-pane" id="Pending"></div>
+	<div class="tab-pane" id="Completed"></div>
+</div>

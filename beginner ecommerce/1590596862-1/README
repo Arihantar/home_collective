@@ -1,0 +1,31 @@
+== Beginning Rails Source Code and Sample Application
+
+* The Rails installation script for OS X 10.4.x (Chapter 2, pages 27-28) can
+  be found in install_rails_osx.sh.
+
+* The source code for the entire event management application can be found in
+  the events directory.
+
+
+== Installation of the events application
+
+* Make sure you have Ruby, Rails, and MySql installed
+* Copy the events directory to a location on your computer and change into
+  that directory
+* Create two new MySql databases: events_development and events_test
+* Copy the database config file from config/database.yml.tpl to config/database.yml and
+  customize it for the databases you just created
+* Initialize the database using `rake db:schema:load` from the command line
+* Start the web server using `./script/server`
+
+
+Please report any and all errata to the authors at http://beginningrails.com
+
+--
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

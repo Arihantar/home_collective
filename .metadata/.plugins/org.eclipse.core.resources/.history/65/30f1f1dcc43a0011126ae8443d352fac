@@ -1,0 +1,28 @@
+<%= hidden_field_tag :sort, params[:sort]%>
+<%= hidden_field_tag :direction, params[:direction] %>
+<table class="zebra-striped">
+	<tr>
+		<th><%= sortable "name" %></th>
+		<th><%= sortable "duedate", "Due Date" %></th>
+		<th><%= sortable "location"%></th>
+		<th><%= "Lists"%></th>
+		<th></th>
+		<th></th>
+		<th></th>
+	</tr>
+	<% @items.each do |item| %>
+	<tr>
+		<td><%= link_to item.name, item %></td>
+		<td>
+		<button class="btn primary", id="duedate">
+			<%= time_ago_in_words(item.duedate) %> ago
+		</button></td>
+		<td><%= item.location %></td>
+		<td> <% item.lists.each do|list| %>
+		<%= link_to list.name, list_path(list.id) %>
+		<% end %> </td>
+		<td><%= link_to 'Edit', edit_item_path(item) %></td>
+		<td><%= link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete %></td>
+	</tr>
+	<% end %>
+</table>

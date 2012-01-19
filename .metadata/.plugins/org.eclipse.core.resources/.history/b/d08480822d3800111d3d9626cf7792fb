@@ -1,0 +1,11 @@
+<%= form.fields_for :lists  do |list_form| %>
+  <div class="field">
+  	<% unless list_form.object.nil? || list_form.object.new_record? %>
+  	<%= list_form.label :_destoy, 'Remove'%> <%= list_form.check_box :_destroy %>
+  	<% else %>
+  	<%= list_form.label :name, 'New List' %>
+    <%= list_form.collection_select (:id, List.all, :id, :name, :conditions => {:item_id in {select id from items where user_id=#{current_user.id}}})%> 
+  	<% end %>
+    <%= list_form.text_field :name %>
+  </div>
+<% end %>

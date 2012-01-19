@@ -1,0 +1,6 @@
+class Task < ActiveRecord::Base
+  before_save :downcase_fields
+  has_many :comments
+  belongs_to :user
+  acts_as_taggable
+end

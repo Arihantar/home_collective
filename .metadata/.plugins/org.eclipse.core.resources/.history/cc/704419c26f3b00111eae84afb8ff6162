@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Reminder</title>
+		<%= stylesheet_link_tag    "application" %>
+		<%= stylesheet_link_tag    "autoSuggest" %>
+		<%= stylesheet_link_tag    "jquery-ui-1.8.16.custom" %>
+		<%= stylesheet_link_tag    "token-input" %>
+		<%= javascript_include_tag "application" %>
+		<%= javascript_include_tag "jquery.autoSuggest" %>
+		<%= javascript_include_tag "jquery.tokeninput" %>
+		<%= javascript_include_tag "bootstrap-tabs" %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body style="padding-top: 60px">
+		<div class="topbar">
+			<div class="topbar-inner">
+				<div class="container">
+					<h3><%= link_to "Reminder", "/" %></h3>
+					<ul class="nav">
+						<li>
+							<%= link_to "Items", items_path %>
+						</li>
+						<li>
+							<%= link_to "List", lists_path%>
+						</li>
+					</ul>
+
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="content">
+				<div class="row"></div>
+				<div class="row">
+					<div class="span11">
+						<p class="notice">
+							<%= notice %>
+						</p>
+						<p class="alert">
+							<%= alert %>
+						</p>
+						<%= yield %>
+					</div>
+					<div class="span1">
+						&nbsp;
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

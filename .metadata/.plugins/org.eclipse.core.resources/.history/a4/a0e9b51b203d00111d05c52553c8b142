@@ -1,0 +1,14 @@
+class ContextsController < ApplicationController
+  before_filter :authenticate_user!
+  def index
+    @contexts = Task.where(:user_id => current_user.id).select(:context)
+    respond_to do |format|
+      format.html
+      format.json {render :json => @contexts}
+    end
+  end
+  
+  def show
+    @task = Task.where(:conditions => {"context=?", params[:context]})
+  end
+end

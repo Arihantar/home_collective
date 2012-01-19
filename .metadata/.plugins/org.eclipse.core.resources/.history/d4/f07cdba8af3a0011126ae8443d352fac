@@ -1,0 +1,28 @@
+class Item < ActiveRecord::Base
+  belongs_to :user
+  has_and_belongs_to_many :lists
+
+  # attr_reader :list_name_values
+  validates :name, :presence => true
+  validates :duedate, :presence => true
+
+  attr_protected :lists
+
+# accepts_nested_attributes_for :lists, :allow_destroy => :true, :reject_if => proc{|attr| attr.all? {|k,v| v.blank?}}
+
+# def list_name_values=(ids)
+# self.list_ids = ids.split(",")
+# list_ids.each do |list|
+# List.find_or_create_by_id(id)
+# end
+# end
+
+  def self.search(search)
+    if search
+      where("user_id =? AND name LIKE ?", "#{current_user.id}", "%#{search}%")
+    else
+      where("user_id =?", ""#{current_user.id}")
+    end
+  end
+
+end

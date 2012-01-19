@@ -1,0 +1,4 @@
+class Comment < ActiveRecord::Base
+  validates :context, :body => {:in => 1..500}
+  belongs_to :task
+end

@@ -1,0 +1,33 @@
+
+
+<%= form_for @item,:html => {:id => "item_form"} do |f| %>
+<div class="clearfix">
+	<%= f.label :name %>
+	<div class="input">
+		<%= f.text_field :name %>
+	</div>
+</div>
+<div class="clearfix">
+	<%= f.label :duedate %>
+	<div class="input">
+		<%= f.date_select :duedate %>
+	</div>
+</div>
+<div class="clearfix">
+	<%= f.label :location %>
+	<div class="input">
+	<%= f.text_field :location %>
+	</div>
+</div>
+
+<div class="clearfix">
+	<%= f.label :lists, "Lists" %>
+	<div class="input">
+	<%= f.text_field :lists, "data-pre" => @item.lists.map{|l| l}.to_json, :class => 'list-input' %>
+	</div>
+</div>
+
+<div class="actions">
+	<%= f.submit "Save", :class => "btn danger"%>
+</div>
+<% end %> 

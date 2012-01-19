@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Events</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <%= stylesheet_link_tag 'application' %>
+    <%= javascript_include_tag :defaults %>
+  </head>
+
+  <body>
+    <div id="application">
+      <div id="header">
+        <div class="container">
+          <div class="statusbar">
+            <div class="logo">
+              <strong>Event-a-licious!</strong>
+            </div>
+            <div class="menu">
+              <% if logged_in? -%>
+                logged in as <%= current_user.login %> (<%= link_to 'logout', logout_url %>)
+              <% else -%>
+                <%= link_to 'register', signup_url %>
+                <%= link_to 'signin',   login_url %>
+              <% end -%>
+            </div> 
+          </div>
+          <hr />
+          <div class="tabs">
+            <ul class="navigation">
+              <li>
+                <%=
+                link_to_with_selected('Events', events_url) do
+                  params[:controller] == 'events' && params[:action] != 'new'
+                end
+                %>
+              </li>
+              <% if logged_in? %>
+                <li>
+                  <%=
+                    link_to_with_selected('New Event', new_event_url) do
+                      params[:controller] == 'events' && params[:action] == 'new'
+                    end
+                  %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div id="page">
+        <div id="content">
+          <%= content_tag(:div, flash[:notice], :class => 'flash') if flash[:notice] %>
+          <%= yield %>
+        </div>
+        <hr />
+      </div>
+   
+      <div id="footer"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+class ContextsController < ApplicationController
+  def index
+    @context = Task.select("context").where("user_id=?", current_user.id)
+    
+  end
+end

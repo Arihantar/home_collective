@@ -1,0 +1,17 @@
+<h1 align="center">Contexts</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Count</th>
+  </tr>
+
+<% @contexts.each do |context| %>
+<tr>
+	<td><%= link_to context["context"], "/contexts/#{context["context"]}"%></td>
+</tr>
+<% end %>
+</table>
+
+<br />
+
